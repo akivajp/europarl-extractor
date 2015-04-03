@@ -13,6 +13,13 @@ def main():
     parser.add_argument('langs', metavar = 'language_code', nargs='+', help = 'list of language codes')
     args = parser.parse_args()
 
+    if (not os.path.isdir(args.corpus)):
+        print('corpus dir "%s" is not found' % (args.corpus))
+        exit(-1)
+    if (not os.path.isdir("%s/%s" % (args.corpus, args.langs[0]))):
+        print('corpus dir "%s/%s" is not found' % (args.corpus, args.langs[0]))
+        exit(-1)
+
     outPrefix = args.output
     if outPrefix.endswith('/'):
         try:
