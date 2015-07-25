@@ -18,10 +18,12 @@ if (scalar(@langs) < 2)
   exit 1;
 }
 
-chdir($Bin);
+#chdir($Bin);
 my $dir = "txt";
 my $outdir = "aligned";
 my $preprocessor = "$Bin/tools/split-sentences.perl -q";
+
+print("PWD: " . `pwd`);
 
 foreach my $lang(@langs)
 {
